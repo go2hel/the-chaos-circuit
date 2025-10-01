@@ -112,31 +112,29 @@ This document outlines the complete development roadmap for creating a multiplay
 - **Test in a Build**: The Unity Editor can behave differently than a real build. Always test with standalone builds.
 - **Host Authority**: The host should be the authority on the game state (race timer, map seed).
 
-## Phase 5: Matchmaking & Final Deployment
+## Phase 5: LAN Discovery & Final Deployment
 
-**Objective**: To eliminate the need for IP addresses by deploying a central matchmaking server and hosting the game publicly.
+**Objective**: To allow players on the same local network to automatically find and join games without manually entering IP addresses, and to package and deploy the game for players.
 
 ### ✅ To-Do Checklist
 
-- [ ] Write the simple Master Server application (Python/FastAPI or Go). It needs endpoints for registering a host and getting the host list.
-- [ ] Package the Master Server into a Docker image.
-- [ ] Deploy the Docker image to a free service like **Fly.io** or **Render**.
-- [ ] Configure **CORS** on your server to allow requests from your game's URL.
-- [ ] In Unity, replace the IP input UI with a server browser that fetches and displays the list from your deployed Master Server.
-- [ ] Build the final Unity project for the **WebGL** platform.
-- [ ] Create a public GitHub repository.
-- [ ] Enable **GitHub Pages** and upload your WebGL build files.
-- [ ] Write a high-quality `README.md` file explaining the project, how to play, and how to host a server.
+- [ ] Implement a **LAN Discovery** system. This involves:
+  - **Host side**: The host's game will send out UDP broadcast messages every second, announcing its presence on the network.
+  - **Client side**: The joinee's game will listen for these UDP broadcasts.
+- [ ] Create a "Join Game" UI that displays a list of all discovered games on the local network.
+- [ ] Implement the logic so that clicking a game in the list automatically connects the client to that host.
+- [ ] Build the final Unity project for **WebGL**.
+- [ ] Enable **GitHub Pages** and upload the WebGL build so people can play instantly in their browser.
+- [ ] Update the final `README.md` with links to the GitHub Pages game and the Releases page.
 
 ### 🧪 Testing Checklist
 
-- [ ] Can you access your Master Server's endpoints from your browser?
-- [ ] In-game, does the server browser correctly populate with hosted games?
-- [ ] Can you successfully join a game by clicking on a server in the browser?
-- [ ] **The Final Test**: Have a friend (not on your network) access your GitHub Pages URL. Can they host a game, and can you join them?
-- [ ] Is your GitHub repository clean, with a clear README?
+- [ ] On a local network, does a game hosted by one player appear in the "Join Game" list for other players?
+- [ ] Can players successfully join the game from the discovered list?
+- [ ] Does the discovery list correctly update when a host starts or stops a game?
+- [ ] Is the GitHub Pages link working?
 
 ### ⭐ Key Tips & Focus for Phase 5
 
-- **The README is Your Front Door**: A good README makes your project look professional. Include screenshots or a GIF of the gameplay!
-- **Keep it Simple**: Don't worry about security or advanced features yet. The goal is to get a fully working end-to-end experience.
+- **Use a Library for Discovery**: Networking libraries like **Mirror** have a `NetworkDiscovery` component that handles UDP broadcasting for you. For Netcode for GameObjects, you may need to write this logic yourself, but it's a well-documented process.
+- **Clear Instructions**: Your `README.md` should clearly explain that to host a game securely (with secret keys), players should use the downloadable Standalone build.

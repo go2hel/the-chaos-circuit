@@ -11,10 +11,9 @@ An open-source, multiplayer racing game built with Unity, featuring new, randoml
 
 ## 🎮 Play & Download
 
-You can play the latest version instantly in your browser or download the APK for Android from the official releases page.
+You can play the latest version instantly in your browser.
 
 - Play In Browser: Link to be updated
-- Download for Android: Link to be updated
 
 ## 🤔 How the Maps are being generated ?
 
