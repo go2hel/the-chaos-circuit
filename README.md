@@ -9,16 +9,12 @@ An open-source, multiplayer racing game built with Unity, featuring new, randoml
 - **Cross-Platform**: Play instantly in your browser (WebGL) or on your Android device.
 - **Arcade Physics**: Easy to learn, fun to master car handling.
 
----
-
 ## 🎮 Play & Download
 
 You can play the latest version instantly in your browser or download the APK for Android from the official releases page.
 
 - Play In Browser: Link to be updated
 - Download for Android: Link to be updated
-
----
 
 ## 🤔 How the Maps are being generated ?
 

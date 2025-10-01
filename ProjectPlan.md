@@ -2,8 +2,6 @@
 
 This document outlines the complete development roadmap for creating a multiplayer, procedurally generated racing game. The client will be hosted for free on the web, with matchmaking handled by a lightweight, free-tier backend service.
 
----
-
 ## Phase 1: The Core Gameplay Loop (Single-Player)
 
 **Objective**: To create a fun and satisfying single-player driving experience on a static test track. If driving isn't fun by itself, the game has no foundation.
@@ -33,8 +31,6 @@ This document outlines the complete development roadmap for creating a multiplay
 - **Iterate Rapidly**: Make small changes to physics values, hit play, test, stop, and repeat.
 - **Use the Unity Profiler**: Keep an eye on performance from the start.
 
----
-
 ## Phase 2: Procedural Map Generation
 
 **Objective**: To replace the static track with a new, random, complete, and drivable racetrack every time the game starts, based on a seed.
@@ -60,8 +56,6 @@ This document outlines the complete development roadmap for creating a multiplay
 
 - **Visualize Your Debugging**: Use `Debug.DrawRay` or `Gizmos` to draw your grid and connector points in the Scene view.
 - **Start Simple**: Get `straight` and `curve` pieces working first. Then add biasing and loop closing.
-
----
 
 ## Phase 3: UI & Game State Management
 
@@ -91,8 +85,6 @@ This document outlines the complete development roadmap for creating a multiplay
 - **Centralize Logic**: The `GameManager` should be the "brain" of your game.
 - **Separate UI from Logic**: UI scripts display data; the `GameManager` manages it.
 
----
-
 ## Phase 4: Peer-to-Peer Networking
 
 **Objective**: To make the game multiplayer by allowing one player to host and others to join them directly via an IP address.
@@ -119,8 +111,6 @@ This document outlines the complete development roadmap for creating a multiplay
 
 - **Test in a Build**: The Unity Editor can behave differently than a real build. Always test with standalone builds.
 - **Host Authority**: The host should be the authority on the game state (race timer, map seed).
-
----
 
 ## Phase 5: Matchmaking & Final Deployment
 
